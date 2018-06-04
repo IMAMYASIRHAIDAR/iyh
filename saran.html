@@ -1,0 +1,70 @@
+<html>
+<head>
+<style type="text/css">
+	body{
+		background-color:cover;	
+	}
+	</style>
+
+</head>
+<body style="background-color:black" background-color:cover>
+<script language="javascript">
+	function validasi(){
+	 var nameValid =/^[a-zA-Z]+(([\'\,\.\-][a-zA-Z])?[a-zA-Z]*)*$/;
+	 var e-mailValid = /^\w+@[a-zA-Z]+?\.[a-zA-Z] {2,3}$/;
+	 var nama = input.nama.value;
+	 var alamat = input.alamat.value;
+	 var email = input.email.value;
+	 var pesan = ' ';
+	 
+	 if(nama ==' '){
+	  pesan = '-nama tidak boleh kosong\n';
+	 }
+	 if(nama !=' ' && !nama.match(nameValid)){
+	   pesan += 'alamat tidak valid\n';
+	   }
+	   if(alamat == ' '){
+	   pesan = '-alamat tidak boleh kosong\n';
+	   }
+	   if (email ==' '){
+	    pesan += ' email tidak boleh kosong\n';
+		}
+		if(email !=' ' && ! email.match(e-mailValid)){
+		  pesan += ' alamat email tidak valid';
+		}
+		if(pesan !=' '){
+		 alert ("maaf ada kesalahan pengisian formulir\n"+pesan);
+		 return false;
+		 }
+		 return true;
+		 }
+</script>
+
+<form action="#" method="post">
+<a href="index.html"><font color="#ffffff">Kembali Ke Home</a>
+<table style="width : 400px">
+ <tbody>
+	<tr>
+		<td><font size="5" color="white">Nama</font></td>
+		`<td><font size="5" color="white"> : </font></td>
+		<td><input type="text" name="nama" placeholder="Nama anda"/></td>
+	</tr>
+	
+	<tr>
+		<td><font size="5" color="white">E-mail</font></td>
+		<td><font size="5" color="white"> : </font></td>
+		<td><input type="text" name="email" placeholder="Email anda"/></td>
+	</tr>
+	<tr>
+		<td><font size="5" color="white">Message</font></td>
+		<td><font size="5" color="white"> : </font></td>
+		<td><textarea name="pesan" placeholder="Pesan anda" cols="40" rows="5"> </textarea></td> 
+	</tr>
+	</tbody>
+	</table>
+	<br><br><br><br><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit"  name="proses" value="Kirim"><input type="reset" name="reset" value="Hapus">
+	<br>
+	</form>	
+	</body>
+	</html>

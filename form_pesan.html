@@ -1,0 +1,128 @@
+<html lang="en">
+<head>
+<title>Form Pemesanan</title>
+            <link rel="stylesheet" href="css1/bootstrap.css">
+</head>
+<body>
+  <div class="container">
+<center>
+<script language="JavaScript" type="text/javascript">
+function jumlah() {
+var bihunpedas = 12000 * myForm.order1.value;
+var nasigoreng = 14000 * myForm.order2.value;
+var baksourat = 15000 * myForm.order3.value;
+var miayamceker = 15000 * myForm.order4.value;
+var ayamgeprek = 10000 * myForm.order5.value;
+var sateayam = 10000 * myForm.order6.value;
+var hasil = bihunpedas+nasigoreng+baksourat+miayamceker+ayamgeprek+sateayam;
+var jumlah = (bihunpedas/12000)+(nasigoreng/14000)+(baksourat/15000)+(miayamceker/15000)+(ayamgeprek/10000)+(sateayam/10000);
+var terbayar = myForm.dibayar.value ;
+var kembalian = terbayar - hasil;
+
+myForm.totalbarang.value = jumlah;
+//
+if (hasil > 50000) {
+    myForm.total.value = hasil;
+    myForm.diskon.value = 20000;
+    myForm.bayar.value = hasil - eval(myForm.diskon.value);
+    myForm.kembalian1.value = terbayar - myForm.bayar.value;
+ } else {
+    myForm.total.value = hasil;
+    myForm.diskon.value = 0;
+    document.myForm.bayar.value = hasil - eval(myForm.diskon.value);
+    myForm.kembalian1.value = terbayar - myForm.bayar.value;
+ }
+
+}
+function resetForm(){
+document.form1.reset();
+}
+</script>
+</head>
+<body class="bg-light">
+<p style="text-align: center; font-size: 30px; margin-bottom: -20px"> Data Pesanan </p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+        <p>&larr; <a href="index.html">Home</a>
+            <div class="imgcontainer">
+    <img src="images/home/RESERVASI.jpg" alt="Avatar" class="avatar" height="300px">
+<form name="myForm" method="post" action="simpan_pesan.php">
+<table border="0">  
+	<td> Nama Customer </td>
+	<td> : </td>
+	<td> <input type="text" name="username" placeholder=" Username" required><br></td>
+</tr>
+<tr>
+	<td> Alamat </td>
+	<td> : </td>
+	<td> <input type="text" name="alamat" placeholder=" Alamat" required></td>
+</tr>
+<tr>
+	<td> Tanggal </td>
+	<td> : </td>
+	<td> <input type="date" name=" tanggal" required ></td>
+</tr>
+</table>
+
+<table border="2" cellspacing=0 cellpadding=5 >
+<colgroup align="center">
+<colgroup align="center">
+<colgroup align="center">
+<thead valign="middle">
+<tr>
+<th width="35"><font color="black" size="4">No</font>
+<th width="200"><font color="black" size="4">Makanan</font>
+<th width="180"><font color="black" size="4">Harga Satuan</font>
+<th width="100"><font color="black" size="4">Pesan</font>
+</tr>
+<tbody>
+<tr>
+<td>1<td>Bihun Pedas<td><input type="text" value="12000" disabled="true"/><td>
+<input  type="text"  name="order1" placeholder="0" onChange="jumlah()"/>
+</tr>
+<tr>
+<td>2<td>Nasi Goreng<td><input type="text" value="14000" disabled="true"/><td>
+<input  type="text"  name="order2" value="0" onChange="jumlah()" />
+</tr>
+<tr>
+<td>3<td>Bakso Urat<td><input  type="text"   value="15000" disabled="true"/> <td>
+<input  type="text"  name="order3" value="0" onChange="jumlah()"/>
+</tr>
+<tr>
+<td>4<td>Mi ayam Ceker<td><input  type="text"   value="15000" disabled="true"/> <td>
+<input  type="text"  name="order4" value="0" onChange="jumlah()"/>
+</tr>
+<tr>
+<td>5<td>Ayam Geprek<td><input  type="text"   value="10000" disabled="true"/> <td>
+<input  type="text"  name="order5" value="0" onChange="jumlah()"/>
+</tr>
+<tr>
+<td>6<td>Sate Ayam<td><input  type="text"   value="10000" disabled="true"/> <td>
+<input  type="text"  name="order6" value="0" onChange="jumlah()"/>
+</tr>
+<tr>
+<td colspan=3 align="right">Jumlah Total<td><input type="text"  id="total" name="total" value="" />
+</tr>
+<tr>
+<td colspan=3 align="right">Jumlah Total Barang<td><input type="text"  id="totalbarang" name="totalbarang" value="" />
+</tr>
+<tr>
+<td colspan=3 align="right">Diskon<td><input  type="text"  name="diskon"  />
+</tr>
+<tr>
+<td colspan=3 align="right">Jumlah Bayar<td><input type="text" name="bayar" value="" />
+</tr>
+<tr>
+<td colspan=3 align="right">Uang Anda<td><input type="text" name="dibayar" id="dibayar" placeholder="Uang Anda" onChange="jumlah()" />
+</tr>
+<tr>
+<td colspan=3 align="right">Kembalian<td><input type="text" name="kembalian1" id="kembalian1" value="" />
+</tr>
+</table>
+<br/>
+<input type="button" value="CANCEL" onClick="resetForm()" />
+<input type="submit" value="PESAN" />
+</form>
+</body>
+</html> 
